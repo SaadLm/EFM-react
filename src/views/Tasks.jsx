@@ -47,7 +47,7 @@ const Tasks = () => {
 
   const loadTasks = async (projectId) => {
     try {
-      const response = await axios.get(`http://localhost:8083/tasks/projet/${projectId}`);
+      const response = await axios.get(`http://localhost:8080/tasks/projet/${projectId}`);
       setTasks(response.data);
     } catch (error) {
       console.error("Error loading tasks:", error);
@@ -56,7 +56,7 @@ const Tasks = () => {
 
   const loadProjects = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/projets");
+      const response = await axios.get("http://localhost:8080/projets");
       setProjects(response.data);
     } catch (error) {
       console.error("Error loading projects:", error);
@@ -65,7 +65,7 @@ const Tasks = () => {
 
   const loadUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:8082/users");
+      const response = await axios.get("http://localhost:8080/users");
       setUsers(response.data);
     } catch (error) {
       console.error("Error loading users:", error);
@@ -237,7 +237,7 @@ const Tasks = () => {
                     {task.completed ? "Completed" : "Pending"}
                   </span>
                 </TableCell>
-                <TableCell>
+                <TableCell className='fw-bold'>
                   {users.find(user => user.id === task.userId)?.name || 'Unassigned'}
                 </TableCell>
                 <TableCell>

@@ -51,7 +51,7 @@ export default function Users() {
 
   const loadUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:8082/users');
+      const response = await axios.get('http://localhost:8080/users');
       console.log(response.data);
       setUsers(response.data);
     } catch (error) {
