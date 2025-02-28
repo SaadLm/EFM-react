@@ -112,7 +112,7 @@ export default function Users() {
               <DialogTitle>{editingId ? 'Edit User' : 'Add New User'}</DialogTitle>
             </DialogHeader>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 text-white">
                 <FormField
                   control={form.control}
                   name="name"

@@ -98,7 +98,7 @@ useEffect(() => {
   };
   const findTaskUser = (idUser)=>{
     const user = users.find(user => user.id === idUser)
-      return user.name
+    return user ? user.name : "Unassigned";
   }
 
 
@@ -191,7 +191,7 @@ const [newProject, setNewProject] = useState({
     e.preventDefault()
     try {
       console.log('infos de new projet : ',newProject)
-      await axios.post("http://localhost:8080/projets", newProject)
+      await axios.post("http://localhost:8081/projets", newProject)
       await loadProjects() // Refresh projects list
       setOpen(false)
       setNewProject({ name: "", description: "" })
@@ -200,6 +200,17 @@ const [newProject, setNewProject] = useState({
     }
   }
 
+  const handleDeleteProjet =async (id)=>{
+    if (window.confirm('Etes vous sure de suprimer ce projet ?')) {
+    try{
+      await axios.delete(`http://localhost:8081/projets/${id}`)
+      await loadProjects();
+    }
+    catch(error){
+      console.log("erreur de supression du projet : ", error)
+    }
+  }
+  }
     
 
 
@@ -215,7 +226,7 @@ const [newProject, setNewProject] = useState({
             <DialogHeader>
               <DialogTitle>Create New Project</DialogTitle>
             </DialogHeader>
-            <form onSubmit={addProject} className="space-y-4">
+            <form onSubmit={addProject} className="space-y-4 text-white">
               <div>
                 <label htmlFor="name">Project Name</label>
                 <Input
@@ -249,9 +260,23 @@ const [newProject, setNewProject] = useState({
        {projects.map((projet) => (
         <div key={projet.id} className="mt-5">
           {/* Clickable caption to toggle table */}
-          <div className="w-full text-center cursor-pointer text-blue-500 font-semibold" onClick={() => toggleTable(projet.id)}>
-            {/* <span>yes</span> */}
-            <span>Projet : {projet.name}</span>
+          <div className="w-full" >
+            
+            <div className="text-center">
+              <span className="cursor-pointer text-blue-500 font-semibold" onClick={() => toggleTable(projet.id)}>Projet : {projet.name}</span>
+            </div>
+
+            <div className="text-end">
+                    <div>
+                      <Button 
+                        variant="destructive"
+                        size="sm"
+                        onClick={() => handleDeleteProjet(projet.id)}
+                      >
+                        Delete
+                      </Button>
+                    </div>
+            </div>
           </div>
 
           {/* Show table only if the project is visible */}

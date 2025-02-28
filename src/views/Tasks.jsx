@@ -149,7 +149,7 @@ const Tasks = () => {
                 {editingTask ? "Edit Task" : "Add New Task"}
               </DialogTitle>
             </DialogHeader>
-            <div className="space-y-4">
+            <div className="space-y-4 text-white">
               <Input
                 placeholder="Task title"
                 value={editingTask ? editingTask.title : newTask.title}
