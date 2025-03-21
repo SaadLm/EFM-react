@@ -1,6 +1,6 @@
 import './index.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './views/Home'
+import Home from './views/Projects'
 import Tasks from './views/Tasks'
 import Users from './views/Users'
 // import { Sidebar, SidebarHeader, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarProvider ,SidebarTrigger } from './components/ui/sidebar'

@@ -124,13 +124,13 @@ const Tasks = () => {
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-4">
-          <h1 className="text-2xl font-bold">Tasks Management</h1>
+          <h1 className="text-2xl font-bold">Gestion des Tâches</h1>
           <select
             className="p-2 border rounded"
             value={selectedProject}
             onChange={(e) => setSelectedProject(e.target.value)}
           >
-            <option value="">Select Project</option>
+            <option value="">Sélectionner un Projet</option>
             {projects.map((project) => (
               <option key={project.id} value={project.id}>
                 {project.name}
@@ -141,12 +141,12 @@ const Tasks = () => {
         
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
-            <Button disabled={!selectedProject}>Add New Task</Button>
+            <Button disabled={!selectedProject}>Ajouter une Nouvelle Tâche</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>
-                {editingTask ? "Edit Task" : "Add New Task"}
+                {editingTask ? "Modifier la Tâche" : "Ajouter une Nouvelle Tâche"}
               </DialogTitle>
             </DialogHeader>
             <div className="space-y-4 text-white">
@@ -267,7 +267,7 @@ const Tasks = () => {
         </Table>
       ) : (
         <div className="text-center py-10 text-gray-500">
-          Please select a project to view its tasks
+          Veuillez sélectionner un projet pour voir ses tâches
         </div>
       )}
     </div>

@@ -102,14 +102,14 @@ export default function Users() {
   return (
     <div className="container container-fluid mx-auto p-4">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">Users Management</h1>
+        <h1 className="text-2xl font-bold">Gestion des Utilisateurs</h1>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
             <Button variant="outline" onClick={handleAddNew}>Ajouter</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>{editingId ? 'Edit User' : 'Add New User'}</DialogTitle>
+              <DialogTitle>{editingId ? 'Modifier l\'Utilisateur' : 'Ajouter un Nouvel Utilisateur'}</DialogTitle>
             </DialogHeader>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 text-white">
@@ -118,7 +118,7 @@ export default function Users() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
+                      <FormLabel>Nom</FormLabel>
                       <FormControl>
                         <Input placeholder="Name" {...field} />
                       </FormControl>
@@ -140,7 +140,7 @@ export default function Users() {
                 />
                 
                 <Button type="submit" className="w-full">
-                  {editingId ? 'Update User' : 'Add User'}
+                  {editingId ? 'Mettre à Jour l\'Utilisateur' : 'Ajouter l\'Utilisateur'}
                 </Button>
               </form>
             </Form>
