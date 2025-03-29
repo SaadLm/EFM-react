@@ -201,7 +201,7 @@ const Tasks = () => {
                 onClick={editingTask ? handleUpdateTask : handleAddTask}
                 className="w-full"
               >
-                {editingTask ? "Update Task" : "Add Task"}
+                {editingTask ? "Modifier la Tâche" : "Ajouter une Nouvelle Tâche"}
               </Button>
             </div>
           </DialogContent>
@@ -213,11 +213,11 @@ const Tasks = () => {
           <TableHeader>
             <TableRow>
               <TableHead>ID</TableHead>
-              <TableHead>Title</TableHead>
+              <TableHead>Titre</TableHead>
               <TableHead>Description</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead>Assigned To</TableHead>
-              <TableHead>Actions</TableHead>
+              <TableHead>Assigné à</TableHead>
+              <TableHead>Action</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -250,14 +250,14 @@ const Tasks = () => {
                         setIsDialogOpen(true);
                       }}
                     >
-                      Edit
+                      Modifier
                     </Button>
                     <Button
                       variant="destructive"
                       size="sm"
                       onClick={() => handleDeleteTask(task.id)}
                     >
-                      Delete
+                      Supprimer
                     </Button>
                   </div>
                 </TableCell>
